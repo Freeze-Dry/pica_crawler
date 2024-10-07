@@ -86,7 +86,7 @@ favourites = p.my_favourite_all()
 print('收藏夹共计%d本漫画' % (len(favourites)), flush=True)
 print('id | 本子 | 画师 | 分区', flush=True)
 
-for comic in favourites:# + comics:
+for comic in favourites:#要下载排行榜和订阅的漫画就把前面的注释都删掉 + comics:
     try:
         # 收藏夹:全量下载  其余:增量下载
         download_comic(comic, comic not in favourites)
