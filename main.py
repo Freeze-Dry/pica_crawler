@@ -75,18 +75,18 @@ p.punch_in()
 # comics = p.leaderboard()
 
 # 关键词订阅的漫画
-keywords = os.environ.get("SUBSCRIBE_KEYWORD", "").split(',')
-for keyword in keywords:
-    subscribe_comics = p.search_all(keyword)
-    print('关键词%s : 订阅了%d本漫画' % (keyword, len(subscribe_comics)), flush=True)
-    comics += subscribe_comics
+# keywords = os.environ.get("SUBSCRIBE_KEYWORD", "").split(',')
+# for keyword in keywords:
+#     subscribe_comics = p.search_all(keyword)
+#     print('关键词%s : 订阅了%d本漫画' % (keyword, len(subscribe_comics)), flush=True)
+#     comics += subscribe_comics
 
 # 收藏夹的漫画
 favourites = p.my_favourite_all()
 print('收藏夹共计%d本漫画' % (len(favourites)), flush=True)
 print('id | 本子 | 画师 | 分区', flush=True)
 
-for comic in favourites + comics:
+for comic in favourites # 下载排行榜和订阅的漫画就把批注删掉 + comics:
     try:
         # 收藏夹:全量下载  其余:增量下载
         download_comic(comic, comic not in favourites)
