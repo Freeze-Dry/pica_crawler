@@ -72,7 +72,7 @@ p.login()
 p.punch_in()
 
 # 排行榜的漫画
-comics = p.leaderboard()
+# comics = p.leaderboard()
 
 # 关键词订阅的漫画
 keywords = os.environ.get("SUBSCRIBE_KEYWORD", "").split(',')
